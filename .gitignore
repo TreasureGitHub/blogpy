@@ -2,4 +2,7 @@
 a.bat
 
 #tools
-.idea
+.idea/*
+
+#cache
+./__pycache__
