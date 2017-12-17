@@ -111,7 +111,7 @@ async def register(request):
      '__template__': 'register.html'
     }
 
-@get('/signin')
+@get('/ ')
 async def signin():
     return {
     '__template__':'signin.html'

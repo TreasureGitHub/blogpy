@@ -21,9 +21,9 @@
     <meta charset="utf-8"/>
     {% block meta %}<!-- block meta  -->{% endblock %}
     <title>{% block title %} ? {% endblock %} - Awesome Python Webapp</title>
-    <link rel="stylesheet" href="/static/css/default.css">
-    <link rel="stylesheet" href="/static/css/layout.css">
-    <link rel="stylesheet" href="/static/css/media-queries.css">
+{#    <link rel="stylesheet" href="/static/css/default.css">#}
+{#    <link rel="stylesheet" href="/static/css/layout.css">#}
+{#    <link rel="stylesheet" href="/static/css/media-queries.css">#}
     <link rel="stylesheet" href="/static/css/uikit.min.css">
     <link rel="stylesheet" href="/static/css/uikit.gradient.min.css">
     <link rel="stylesheet" href="/static/css/awesome.css"/>
@@ -33,12 +33,12 @@
     <script src="/static/js/sticky.min.js"></script>
     <script src="/static/js/vue.min.js"></script>
     <script src="/static/js/awesome.js"></script>
-{##}
-{#    <style>#}
-{#        body {#}
-{#            background-image: url(/static/img/timg.gif)#}
-{#        }#}
-{#    </style>#}
+    {##}
+    {#    <style>#}
+    {#        body {#}
+    {#            background-image: url(/static/img/timg.gif)#}
+    {#        }#}
+    {#    </style>#}
 
     {% block beforehead %}<!-- before head  -->{% endblock %}
 </head>
@@ -68,8 +68,29 @@
                 <li><a href="/category?id=5">碎言碎语</a></li>
                 <li><a href="/about">About</a></li>
             </ul> <!-- end #nav -->
-            <h4 style="float:right;margin-top:1rem "><a href="/signin">登录</a>| <a href="/register">注册</a></h4>
-        </div>
+
+            {% if __user__ %}
+                <ul id="nav" class="uk-parent" style="float:right;">
+                    <li class="has-children"><a href="#0"><i class="uk-icon-user"></i>{{ __user__.name }}
+                    </a>
+                        <ul>
+                            <li><a href="/signout"><i class="uk-icon-sign-out"></i> 登出</a></li>
+
+                        </ul>
+                    </li>
+                </ul> <!-- end #nav -->
+                </div>
+            {% else %}
+                <h4 style="float:right;margin-top:1rem ">
+
+                <li class="uk-parent" data-uk-dropdown>
+                    <a href="/signin"><i class="uk-icon-user"></i>登录</a>
+                    <a href="/register"><i class="uk-icon-user"></i>注册</a>
+                </li>
+            {% endif %}
+
+
+            </div>
     </nav> <!-- end #nav-wrap -->
 </header> <!-- Header End -->
 <div class="uk-container uk-container-center">
