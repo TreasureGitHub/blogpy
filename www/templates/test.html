@@ -1,13 +1,43 @@
 <!DOCTYPE html>
+<!--
+-->
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>Test users - Awesome Python Webapp</title>
+    <meta charset="utf-8"/>
+    <title>test-css</title>
+    <link rel="stylesheet" href="/static/css/uikit.min.css">
+    <link rel="stylesheet" href="/static/css/uikit.gradient.min.css">
+    <link rel="stylesheet" href="/static/css/test.css"/>
+
+    <style>
+        .nav-wrap {
+    font: 12px 'opensans-bold', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: #F5F4F3;
+    border-bottom: 1px solid #EAE8E8;
+    width: 100%;
+    float: left;
+    position: absolute;
+    top: 6px;
+    left: 0;
+}
+    </style>
+
+
 </head>
 <body>
-	<h1>All users</h1>
-	{% for u in users %}
-	<p> {{u.name}} / {{u.email}} </p>
-	{% endfor %}
+
+ <nav>
+        <div class="nav-wrap">
+            <a href="/" class="nav-wrap">Awesome</a>
+            <ul class="nav-wrap">
+                <li data-url="blogs"><a href="/"> 日志</a></li>
+                <li><a target="_blank" href="/"> 源码</a></li>
+                <li><a target="_blank" href="/"> ABOUT</a></li>
+            </ul>
+        </div>
+    </nav>
+
 </body>
 </html>

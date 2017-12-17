@@ -111,7 +111,7 @@ async def register(request):
      '__template__': 'register.html'
     }
 
-@get('/signin')
+@get('/ ')
 async def signin():
     return {
     '__template__':'signin.html'
@@ -194,8 +194,6 @@ def manage_users(*, page='1'):
 async def api_comments(*, page='1'):
     page_index = get_page_index(page)
     num = await Comment.findNumber('count(id)')
-    print('----------------')
-    print(num)
     p = Page(num, page_index)
     if num == 0:
         return dict(page=p, comments=())

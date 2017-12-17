@@ -8,10 +8,25 @@ a:hover, a:active {
 #vm {
     display: none;
 }
+
 #loading {
     margin-bottom: 15px;
 }
+
 #error {
     display: none;
     margin-bottom: 15px;
+}
+
+.nav-wrap {
+    font: 12px 'opensans-bold', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: #F5F4F3;
+    border-bottom: 1px solid #EAE8E8;
+    width: 100%;
+    float: left;
+    position: absolute;
+    top: 6px;
+    left: 0;
 }

@@ -1,2 +1,8 @@
 #windows file
 a.bat
+
+#tools
+.idea/*
+
+#cache
+./__pycache__
