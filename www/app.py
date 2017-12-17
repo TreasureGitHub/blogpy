@@ -72,6 +72,8 @@ async def response_factory(app, handler):
     async def response(request):
         r = await handler(request)
         logging.info('Response %s...' % handler.__name__)
+        print('-----------------------')
+        print(dir(app))
         if isinstance(r, web.StreamResponse):
             return r
         if isinstance(r, bytes):
