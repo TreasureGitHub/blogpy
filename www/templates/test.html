@@ -1,125 +1,43 @@
 <!DOCTYPE html>
 <!--
-{% macro pagination(url, page) %}
-    <ul class="uk-pagination">
-        {% if page.has_previous %}
-            <li><a href="{{ url }}{{ page.page_index - 1 }}"><i class="uk-icon-angle-double-left"></i></a></li>
-        {% else %}
-            <li class="uk-disabled"><span><i class="uk-icon-angle-double-left"></i></span></li>
-        {% endif %}
-            <li class="uk-active"><span>{{ page.page_index }}</span></li>
-        {% if page.has_next %}
-            <li><a href="{{ url }}{{ page.page_index + 1 }}"><i class="uk-icon-angle-double-right"></i></a></li>
-        {% else %}
-            <li class="uk-disabled"><span><i class="uk-icon-angle-double-right"></i></span></li>
-        {% endif %}
-    </ul>
-{% endmacro %}
 -->
 <html>
 <head>
     <meta charset="utf-8"/>
-    {% block meta %}<!-- block meta  -->{% endblock %}
-    <title>{% block title %} ? {% endblock %} - Awesome Python Webapp</title>
-{#    <link rel="stylesheet" href="/static/css/default.css">#}
-{#    <link rel="stylesheet" href="/static/css/layout.css">#}
-{#    <link rel="stylesheet" href="/static/css/media-queries.css">#}
+    <title>test-css</title>
     <link rel="stylesheet" href="/static/css/uikit.min.css">
     <link rel="stylesheet" href="/static/css/uikit.gradient.min.css">
-    <link rel="stylesheet" href="/static/css/awesome.css"/>
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/sha1.min.js"></script>
-    <script src="/static/js/uikit.min.js"></script>
-    <script src="/static/js/sticky.min.js"></script>
-    <script src="/static/js/vue.min.js"></script>
-    <script src="/static/js/awesome.js"></script>
-    {##}
-    {#    <style>#}
-    {#        body {#}
-    {#            background-image: url(/static/img/timg.gif)#}
-    {#        }#}
-    {#    </style>#}
+    <link rel="stylesheet" href="/static/css/test.css"/>
 
-    {% block beforehead %}<!-- before head  -->{% endblock %}
+    <style>
+        .nav-wrap {
+    font: 12px 'opensans-bold', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: #F5F4F3;
+    border-bottom: 1px solid #EAE8E8;
+    width: 100%;
+    float: left;
+    position: absolute;
+    top: 6px;
+    left: 0;
+}
+    </style>
+
+
 </head>
 <body>
 
-<header id="top">
-    <div class="row">
-        <div class="header-content twelve columns">
-            <h1 id="logo-text"><a href="/" title="">Life Is All About Tossing</a></h1>
-            <p id="intro">Penniless's Blog</p>
+ <nav>
+        <div class="nav-wrap">
+            <a href="/" class="nav-wrap">Awesome</a>
+            <ul class="nav-wrap">
+                <li data-url="blogs"><a href="/"> 日志</a></li>
+                <li><a target="_blank" href="/"> 源码</a></li>
+                <li><a target="_blank" href="/"> ABOUT</a></li>
+            </ul>
         </div>
-    </div>
-    <nav id="nav-wrap">
-        <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show Menu</a>
-        <a class="mobile-btn" href="#" title="Hide navigation">Hide Menu</a>
-        <div class="row">
-            <ul id="nav" class="nav">
-                <li><a href="/">Home</a></li>
-                <li class="has-children"><a href="/category?id=1">IT那些事</a>
-                    {#                      <ul>#}
-                    {#                         <li><a href="/category?id=2">Python</a></li>#}
-                    {#                         <li><a href="/category?id=3">PHP</a></li>#}
-                    {#                         <li><a href="/category?id=4">数据库相关</a></li>#}
-                    {#                         <li><a href="/category?id=6">前端！前端！</a></li>#}
-                    {#                      </ul>#}
-                </li>
-                <li><a href="/category?id=5">碎言碎语</a></li>
-                <li><a href="/about">About</a></li>
-            </ul> <!-- end #nav -->
+    </nav>
 
-            {% if __user__ %}
-                <ul id="nav" class="uk-parent" style="float:right;">
-                    <li class="has-children"><a href="#0"><i class="uk-icon-user"></i>{{ __user__.name }}
-                    </a>
-                        <ul>
-                            <li><a href="/signout"><i class="uk-icon-sign-out"></i> 登出</a></li>
-
-                        </ul>
-                    </li>
-                </ul> <!-- end #nav -->
-                </div>
-            {% else %}
-                <h4 style="float:right;margin-top:1rem ">
-
-                <li class="uk-parent" data-uk-dropdown>
-                    <a href="/signin"><i class="uk-icon-user"></i>登录</a>
-                    <a href="/register"><i class="uk-icon-user"></i>注册</a>
-                </li>
-            {% endif %}
-
-
-            </div>
-    </nav> <!-- end #nav-wrap -->
-</header> <!-- Header End -->
-<div class="uk-container uk-container-center">
-    <div class="uk-grid">
-        <!-- content -->
-        {% block content %}
-        {% endblock %}
-        <!-- // content -->
-    </div>
-</div>
-
-<div class="uk-margin-large-top" style="background-color:#eee; border-top:1px solid #ccc;">
-    <div class="uk-container uk-container-center uk-text-center">
-        <div class="uk-panel uk-margin-top uk-margin-bottom">
-            <p>
-                <a target="_blank" href="http://weibo.com/liaoxuefeng" class="uk-icon-button uk-icon-weibo"></a>
-                <a target="_blank" href="https://github.com/michaelliao" class="uk-icon-button uk-icon-github"></a>
-                <a target="_blank" href="http://www.linkedin.com/in/liaoxuefeng"
-                   class="uk-icon-button uk-icon-linkedin-square"></a>
-                <a target="_blank" href="https://twitter.com/liaoxuefeng" class="uk-icon-button uk-icon-twitter"></a>
-            </p>
-            <p>Powered by <a href="http://awesome.liaoxuefeng.com">Awesome Python Webapp</a>. Copyright &copy; 2014. [<a
-                    href="/manage/" target="_blank">Manage</a>]</p>
-            <p><a href="http://www.liaoxuefeng.com/" target="_blank">www.liaoxuefeng.com</a>. All rights reserved.</p>
-            <a target="_blank" href="http://www.w3.org/TR/html5/"><i class="uk-icon-html5"
-                                                                     style="font-size:64px; color: #444;"></i></a>
-        </div>
-
-    </div>
-</div>
 </body>
 </html>
